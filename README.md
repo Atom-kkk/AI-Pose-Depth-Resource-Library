@@ -1,5 +1,12 @@
 # AI 姿势深度图库 · 中文汉化版
 
+[![在线体验](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%BD%93%E9%AA%8C-atom--kkk.github.io-8fb4ff)](https://atom-kkk.github.io/AI-Pose-Depth-Resource-Library/)
+![数据规模](https://img.shields.io/badge/1439%20%E5%BC%A0-%C2%B7%20288%20%E7%BB%84%E5%A7%BF%E5%8A%BF-8fb4ff)
+![代码许可](https://img.shields.io/badge/%E4%BB%A3%E7%A0%81-MIT-8fb4ff)
+![纯静态](https://img.shields.io/badge/%E7%BA%AF%E9%9D%99%E6%80%81-%E5%8F%8C%E5%87%BB%E5%8D%B3%E7%94%A8-8fb4ff)
+
+![AI 姿势深度图库](assets/og.jpg)
+
 > 288 组人体姿势、1439 张多角度 **depth 深度图**的纯静态画廊：零依赖、零构建，可本地离线运行，支持按体系、分类、视角筛选与一键下载原图。
 
 **在线体验：** https://atom-kkk.github.io/AI-Pose-Depth-Resource-Library/ · **姊妹项目（线稿分册）：** [AI-Pose-Resource-Library](https://github.com/Atom-kkk/AI-Pose-Resource-Library) · **原始图库：** [ai-pose-depth-gallery.pages.dev](https://ai-pose-depth-gallery.pages.dev/)（POSE-DB-02） · **原作者：** ギア

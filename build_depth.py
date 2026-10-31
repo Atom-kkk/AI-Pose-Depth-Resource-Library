@@ -18,6 +18,7 @@
 import json
 import os
 import re
+from urllib.parse import quote
 
 from i18n import cat_map, name_map
 
@@ -152,6 +153,73 @@ COMMENTS = [
 ]
 
 
+SITE_URL = "https://atom-kkk.github.io/AI-Pose-Depth-Resource-Library/"
+SITE_NAME = "AI-Pose-Depth-Resource-Library"
+SITE_TITLE = "depth 姿势深度图库 · POSE Atlas 中文版"
+SITE_DESC = ("288 组人体姿势、1439 张多角度 depth 深度图，中文汉化。"
+             "正面 / 俯视 / 仰视 / 侧面 / 斜侧五视角，可直接用于 ControlNet "
+             "深度参考。纯静态单文件，双击即用，可离线。")
+SITE_KEYWORDS = ("depth 图, 深度图, 姿势参考, pose reference, ControlNet, "
+                 "ControlNet depth, AI 绘画, 人体姿势, 多角度, POSE Atlas")
+
+FAVICON_SVG = (
+    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>"
+    "<rect width='64' height='64' rx='14' fill='#14171c'/>"
+    "<circle cx='32' cy='19' r='7.5' fill='#8fb4ff'/>"
+    "<path d='M32 29c-7.4 0-11.6 5.2-11.6 12.4V53h23.2V41.4C43.6 34.2 39.4 29 32 29z' "
+    "fill='#8fb4ff'/></svg>"
+)
+
+
+def head_meta():
+    """站点元信息：描述、分享卡、图标、结构化数据。"""
+    icon = "data:image/svg+xml," + quote(FAVICON_SVG, safe="")
+    tags = [
+        '<meta name="description" content="%s">' % SITE_DESC,
+        '<meta name="keywords" content="%s">' % SITE_KEYWORDS,
+        '<meta name="author" content="Atom-kkk">',
+        '<meta name="theme-color" content="#0d0f12">',
+        '<link rel="canonical" href="%s">' % SITE_URL,
+        '<link rel="icon" type="image/svg+xml" href="%s">' % icon,
+        '<meta property="og:type" content="website">',
+        '<meta property="og:site_name" content="%s">' % SITE_NAME,
+        '<meta property="og:locale" content="zh_CN">',
+        '<meta property="og:title" content="%s">' % SITE_TITLE,
+        '<meta property="og:description" content="%s">' % SITE_DESC,
+        '<meta property="og:url" content="%s">' % SITE_URL,
+        '<meta property="og:image" content="%sassets/og.jpg">' % SITE_URL,
+        '<meta property="og:image:width" content="1200">',
+        '<meta property="og:image:height" content="630">',
+        '<meta property="og:image:alt" content="depth 姿势深度图库分享卡">',
+        '<meta name="twitter:card" content="summary_large_image">',
+        '<meta name="twitter:title" content="%s">' % SITE_TITLE,
+        '<meta name="twitter:description" content="%s">' % SITE_DESC,
+        '<meta name="twitter:image" content="%sassets/og.jpg">' % SITE_URL,
+    ]
+    ld = {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": SITE_TITLE,
+        "description": SITE_DESC,
+        "url": SITE_URL,
+        "keywords": SITE_KEYWORDS,
+        "creator": {"@type": "Person", "name": "Atom-kkk"},
+        "license": "https://github.com/Atom-kkk/AI-Pose-Depth-Resource-Library/blob/main/NOTICE-IMAGES.md",
+    }
+    tags.append('<script type="application/ld+json">%s</script>'
+                % json.dumps(ld, ensure_ascii=False, separators=(",", ":")))
+    return "\n".join(tags)
+
+
+def inject_head(html):
+    """把元信息插到 </title> 之后；重复构建时先移除旧块，保证幂等。"""
+    html = re.sub(r"\n<!-- site-meta -->.*?<!-- /site-meta -->", "", html, flags=re.S)
+    block = "\n<!-- site-meta -->\n%s\n<!-- /site-meta -->" % head_meta()
+    if "</title>" not in html:
+        return html
+    return html.replace("</title>", "</title>" + block, 1)
+
+
 def build():
     with open(SRC, encoding="utf-8") as fh:
         html = fh.read()
@@ -213,6 +281,13 @@ def build():
     html = re.sub(
         r"<script[^>]*static\.cloudflareinsights\.com[^>]*></script>", "", html)
     html = html.replace("https://static.cloudflareinsights.com", "")
+
+    # ---------- 8. 站点元信息（SEO / 分享卡 / 图标） ----------
+    html = re.sub(
+        r"<title>.*?</title>",
+        "<title>depth 姿势深度图库 · 288 组姿势 1439 张 | POSE Atlas 中文版</title>",
+        html, count=1, flags=re.S)
+    html = inject_head(html)
 
     # ---------- 输出 ----------
     os.makedirs(os.path.dirname(DATA_OUT), exist_ok=True)
