@@ -282,7 +282,20 @@ def build():
         r"<script[^>]*static\.cloudflareinsights\.com[^>]*></script>", "", html)
     html = html.replace("https://static.cloudflareinsights.com", "")
 
-    # ---------- 8. 站点元信息（SEO / 分享卡 / 图标） ----------
+    # ---------- 8. 移除「加入开放聊天」推广面板（页头 + 页脚各一处） ----------
+    # 连同 cta / btn-oc / chip-by 的配套样式一起删掉，避免留下死代码
+    html = re.sub(r'<div class="cta">.*?</div>\s*</div>\s*', "", html,
+                  count=1, flags=re.S)
+    html = re.sub(r'<div class="cta cta-s">.*?</div>\s*</div>\s*', "", html,
+                  count=1, flags=re.S)
+    html = re.sub(r'/\*[^\n]*\n\.cta\{margin-top:18px.*?'
+                  r'prefers-reduced-motion:reduce\)\{\.btn-oc[^\n]*\n',
+                  "", html, count=1, flags=re.S)
+    html = re.sub(r'<footer id="foot">\s*</footer>\n?', "", html, count=1)
+    # 页脚元素一起删了，对应的 footer 规则也去掉
+    html = re.sub(r'^footer\{[^}]*\}\n', "", html, count=1, flags=re.M)
+
+    # ---------- 9. 站点元信息（SEO / 分享卡 / 图标） ----------
     html = re.sub(
         r"<title>.*?</title>",
         "<title>depth 姿势深度图库 · 288 组姿势 1439 张 | POSE Atlas 中文版</title>",

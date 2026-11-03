@@ -142,41 +142,6 @@ main{max-width:1600px;margin:0 auto;padding:22px clamp(16px,4vw,48px) 60px}
 .ftog{display:none;min-height:52px;font-size:16px;font-weight:700;border:1px solid #4a525f;background:var(--panel);border-radius:12px;padding:0 16px;cursor:pointer;white-space:nowrap}
 .ftog b{display:inline-block;min-width:18px;margin-left:6px;padding:0 5px;border-radius:99px;background:var(--ac);color:#111;font-size:11px}
 .ftog b:empty{display:none}
-footer{color:var(--tx3);font-size:12px;text-align:center;padding:8px 16px 44px;line-height:1.7}
-/* 版权区（开放聊天按钮＋制作者标签）。文字仅取自 build_index.py 的常量，样式全部由 CSS 控制 */
-.cta{margin-top:18px;max-width:760px;position:relative;padding:18px 20px;border-radius:20px;
-  background:linear-gradient(135deg,rgba(143,180,255,.10),rgba(201,166,255,.08) 55%,rgba(255,255,255,.02));
-  border:1px solid rgba(195,213,255,.16);box-shadow:0 12px 32px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.05)}
-.cta-lead{margin:0 0 14px;font-size:clamp(15px,1.6vw,18px);font-weight:700;letter-spacing:.02em;line-height:1.55;color:var(--tx)}
-.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
-.btn-oc,.chip-by{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;
-  -webkit-tap-highlight-color:transparent;transition:transform .18s ease,box-shadow .18s ease,background-color .18s,border-color .18s,filter .18s}
-.btn-oc{min-height:56px;padding:0 34px;border-radius:16px;font-size:17px;font-weight:800;letter-spacing:.06em;color:#0b0d12;
-  background:linear-gradient(120deg,#a9c6ff 0%,#c9b2ff 50%,#f1c7ef 100%);
-  box-shadow:0 10px 28px rgba(143,180,255,.30),0 2px 0 rgba(255,255,255,.35) inset,0 -2px 0 rgba(0,0,0,.10) inset}
-.btn-oc::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,0) 55%);pointer-events:none}
-.btn-oc:hover{transform:translateY(-2px);box-shadow:0 16px 36px rgba(160,170,255,.42),0 2px 0 rgba(255,255,255,.4) inset;filter:saturate(1.08) brightness(1.03)}
-.btn-oc:active{transform:translateY(0) scale(.985);box-shadow:0 6px 16px rgba(143,180,255,.28)}
-.chip-by{min-height:52px;padding:0 22px 0 18px;border-radius:99px;font-size:16px;font-weight:600;color:var(--tx);
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.16);box-shadow:0 4px 14px rgba(0,0,0,.22)}
-.chip-by svg{width:17px;height:17px;flex:0 0 auto;fill:currentColor;opacity:.9}
-.chip-by:hover{transform:translateY(-1px);background:rgba(255,255,255,.08);border-color:rgba(195,213,255,.45)}
-.chip-by:active{transform:scale(.98)}
-.btn-oc:focus-visible,.chip-by:focus-visible{outline:3px solid #fff;outline-offset:3px;box-shadow:0 0 0 6px rgba(143,180,255,.45)}
-/* 页脚重复展示（较小。点击区域 48px 以上） */
-.cta.cta-s{margin:0 auto;max-width:640px;padding:16px;text-align:center;box-shadow:none;background:rgba(255,255,255,.025)}
-.cta-s .cta-lead{font-size:13px;font-weight:600;color:var(--tx2);margin-bottom:12px}
-.cta-s .cta-row{justify-content:center}
-.cta-s .btn-oc{min-height:52px;padding:0 26px;font-size:16px;border-radius:14px}
-.cta-s .chip-by{font-size:16px}
-@media (max-width:560px){
-  .cta{padding:16px 14px;border-radius:18px}
-  .cta-row{flex-direction:column;align-items:stretch;gap:10px}
-  .btn-oc{width:100%;min-height:56px;font-size:16px;padding:0 16px}
-  .chip-by{align-self:center}
-  .cta-s .btn-oc{min-height:52px}
-}
-@media (prefers-reduced-motion:reduce){.btn-oc,.chip-by{transition:none}.btn-oc:hover,.btn-oc:active,.chip-by:hover,.chip-by:active{transform:none}}
 @media (max-width:860px){
   .mbox{grid-template-columns:1fr;overflow:auto;padding:12px}
   .mimg{height:58vh}
@@ -206,14 +171,6 @@ footer{color:var(--tx3);font-size:12px;text-align:center;padding:8px 16px 44px;l
   <h1><span>姿势集</span> depth 数据库</h1>
   <p class="sub">无脸灰色人台模特的姿势深度图（depth・3:4）。越白越靠前。可从正面、俯视、仰视、侧面、斜侧等视角进行对比。</p>
   <p class="topnote">禁止批量下载（包括自动获取）・再分发・转载・销售图像。</p>
-<div class="cta">
-  <p class="cta-lead">姿势集的高效用法（如无审查 AI 的使用等）在开放聊天中公开</p>
-  <div class="cta-row">
-    <a class="btn-oc" href="https://x.gd/9BOJA" target="_blank" rel="noopener noreferrer">加入开放聊天</a>
-    <a class="chip-by" href="https://x.com/giaaibusi" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>制作者：ギア</a>
-  </div>
-</div>
-
 </header>
 <div class="tools"><div class="tools-in">
   <div class="tabs" id="tabs" role="tablist"></div>
@@ -230,15 +187,6 @@ footer{color:var(--tx3);font-size:12px;text-align:center;padding:8px 16px 44px;l
   </div>
 </div></div>
 <main><div class="grid" id="grid"></div></main>
-<footer id="foot">
-<div class="cta cta-s">
-  <p class="cta-lead">姿势集的高效用法（如无审查 AI 的使用等）在开放聊天中公开</p>
-  <div class="cta-row">
-    <a class="btn-oc" href="https://x.gd/9BOJA" target="_blank" rel="noopener noreferrer">加入开放聊天</a>
-    <a class="chip-by" href="https://x.com/giaaibusi" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>制作者：ギア</a>
-  </div>
-</div>
-</footer>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="放大显示">
   <button class="close" id="mclose" aria-label="关闭">×</button>
