@@ -1,6 +1,7 @@
 # AI 姿势深度图库 · 中文汉化版
 
 [![在线体验](https://img.shields.io/badge/%E5%9C%A8%E7%BA%BF%E4%BD%93%E9%AA%8C-atom--kkk.github.io-8fb4ff)](https://atom-kkk.github.io/AI-Pose-Depth-Resource-Library/)
+[![版本](https://img.shields.io/github/v/release/Atom-kkk/AI-Pose-Depth-Resource-Library?label=%E7%89%88%E6%9C%AC&color=8fb4ff)](https://github.com/Atom-kkk/AI-Pose-Depth-Resource-Library/releases)
 ![数据规模](https://img.shields.io/badge/1439%20%E5%BC%A0-%C2%B7%20288%20%E7%BB%84%E5%A7%BF%E5%8A%BF-8fb4ff)
 ![代码许可](https://img.shields.io/badge/%E4%BB%A3%E7%A0%81-MIT-8fb4ff)
 ![纯静态](https://img.shields.io/badge/%E7%BA%AF%E9%9D%99%E6%80%81-%E5%8F%8C%E5%87%BB%E5%8D%B3%E7%94%A8-8fb4ff)
