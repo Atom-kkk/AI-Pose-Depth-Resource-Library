@@ -2,8 +2,8 @@
 """把姿势库的缩略图（以及可选的原图）镜像到本地。
 
 用法
-    python3 fetch_assets.py            # 只下缩略图 thumbs/（约 25 MB，随仓库提交）
-    python3 fetch_assets.py --all      # 连原图 img/ 一起下（约 640 MB，已被 .gitignore 忽略）
+    python3 fetch_assets.py            # 只下缩略图 thumbs/（约 12 MB，随仓库提交）
+    python3 fetch_assets.py --all      # 连原图 img/ 一起下（约 144 MB，同样入库）
     python3 fetch_assets.py --check    # 只检查本地完整性，不下载
 
 特性：16 并发、失败重试、断点续传（已存在且大于 1 KB 的文件跳过）。
